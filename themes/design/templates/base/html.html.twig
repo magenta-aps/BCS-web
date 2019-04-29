@@ -1,0 +1,30 @@
+{%
+set body_classes = [
+  'site',
+  not root_path ? 'site--frontpage' : 'site--path-' ~ root_path|clean_class,
+  node_type ? 'node--type-' ~ node_type|clean_class,
+]
+%}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+<head>
+  <head-placeholder token="{{ placeholder_token|raw }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token|raw }}">
+    <js-placeholder token="{{ placeholder_token|raw }}">
+</head>
+<body{{ attributes.addClass(body_classes)  }}>
+  {% if page_top %}
+    {{ page_top }}
+  {% endif %}
+
+  {% if page %}
+    {{ page }}
+  {% endif %}
+
+  {% if page_bottom %}
+    {{ page_bottom }}
+  {% endif %}
+  <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+</body>
+</html>

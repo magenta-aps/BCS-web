@@ -1,0 +1,44 @@
+.action-button-group {
+    @include margin(30px null);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &--space-between {
+        justify-content: space-between;
+    }
+
+    .header & {
+        @include margin(0 null);
+        @include position(absolute, 3px 5px null null);
+        z-index: 1;
+
+        @media (max-width: $phablet-max) {
+            @include padding(null 0);
+        }
+
+        @media (min-width: $tablet-min) {
+            @include position(absolute, 35px 10px null null);
+        }
+    }
+
+    .layout__menu-container & {
+        @include margin(0 null);
+        @include padding(null 20px);
+
+        @media (max-width: $phablet-max) {
+            display: none;
+        }
+
+        @media (min-width: $tablet-min) {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+
+            .is-content-sticky & {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}

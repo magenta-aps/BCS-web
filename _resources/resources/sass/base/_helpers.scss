@@ -1,0 +1,27 @@
+.h-text-light {
+    font-weight: 300;
+}
+
+.h-text-bold {
+    font-weight: 700;
+}
+
+.h-text-black {
+    font-weight: 900;
+}
+
+.h-no-margin-inside {
+    > * {
+        &:first-child {
+            @include margin(0 null null null);
+        }
+
+        &:last-child {
+            @include margin(null null 0 null);
+        }
+    }
+}
+
+.h-round {
+    border-radius: 50%;
+}

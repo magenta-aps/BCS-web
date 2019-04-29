@@ -1,0 +1,9 @@
+{% set fix_cache = content|render %}
+{% block paragraph %}
+  {% block content %}
+    <div class="person">
+      <h3>{{ content.field_name|field_value }}</h3><img class="person__photo" src="{{ content.field_avatar_image|field_value }}" alt="{{ content.field_avatar_image|field_raw('alt') }}">
+      {{ content.field_body|field_value }}
+    </div>
+  {% endblock %}
+{% endblock paragraph %}

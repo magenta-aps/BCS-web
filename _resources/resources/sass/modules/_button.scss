@@ -1,0 +1,68 @@
+.button {
+    @include padding(null 20px);
+    @include size(auto 40px);
+    display: inline-flex;
+    font-size: 14px;
+    line-height: 1;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-align: center;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: background-color 0.1s ease-in-out;
+
+    &__arrow-right {
+        @include margin(null null null 5px);
+        @include position(relative, null null null 0);
+        width: 12px;
+        fill: $c-white;
+        transform: rotate(-90deg);
+        transition: left 0.1s ease-in-out;
+    }
+
+    &--primary {
+        border-radius: 4px;
+        background-color: $c-dark-gray-2;
+        color: $c-white;
+
+        &:hover {
+            background-color: darken($c-dark-gray-2, 5%);
+
+            svg {
+                left: 5px;
+            }
+        }
+    }
+
+    &--secondary {
+        @include padding(null 40px null null);
+        background-color: transparent;
+        color: $c-white;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+
+        .button__arrow-right {
+            @include position(absolute, 50% 20px null auto);
+            transform: rotate(-90deg) translate3d(62%, 0, 0);
+            transition: right 0.1s ease-in-out;
+        }
+
+        &:hover {
+            .button__arrow-right {
+                right: 15px;
+            }
+        }
+    }
+
+    &[type='submit'] {
+        @media (orientation: portrait) and (max-width: $phablet-max) {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@vb/frontend",
+  "version": "1.0.0",
+  "description": "Default frontend package file",
+  "author": "Vitalij Bakula<vitalij.bakula@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "./scripts/start.sh",
+    "build": "gulp"
+  },
+  "devDependencies": {
+    "bourbon": "^4.3.4",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-cssbeautify": "^0.1.3",
+    "gulp-eslint": "^2.1.0",
+    "gulp-jsbeautifier": "^2.1.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-lint": "^1.3.2",
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.2.1",
+    "run-sequence": "^2.1.0"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "simplebar": "^2.5.0",
+    "slick-carousel": "^1.8.1"
+  }
+}

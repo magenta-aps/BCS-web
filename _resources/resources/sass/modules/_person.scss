@@ -1,0 +1,12 @@
+.person {
+    &__photo {
+        @include margin(null 20px 10px null);
+        width: 130px;
+        float: left;
+    }
+
+    & + & {
+        @include margin(30px null null null);
+        border-top: 1px solid $c-light-grey;
+    }
+}

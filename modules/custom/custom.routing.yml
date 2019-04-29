@@ -1,0 +1,7 @@
+custom.homepage:
+  path: 'home'
+  defaults:
+    _controller: '\Drupal\custom\Controller\Homepage::content'
+    _title_callback: '\Drupal\custom\Controller\Homepage::title'
+  requirements:
+   _access: 'TRUE'

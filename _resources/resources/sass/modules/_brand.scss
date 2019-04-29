@@ -1,0 +1,58 @@
+.brand {
+    min-height: 40px;
+
+    &,
+    &:hover {
+        text-decoration: none;
+    }
+
+    &__text {
+        @include margin(null null null 7px);
+        font-size: 16px;
+    }
+
+    &--inline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &--skype {
+        .brand__text {
+            color: #00aff0;
+        }
+    }
+
+    &--messenger {
+        .brand__text {
+            color: #007cef;
+        }
+    }
+
+    &--linkedin,
+    &--facebook {
+        @include size(40px);
+        border-radius: 6px;
+        transition: background-color 0.1s ease-in-out;
+
+        svg {
+            fill: $c-white;
+        }
+    }
+
+    &--linkedin {
+        background-color: #127bb6;
+
+        &:hover {
+            background-color: darken(#127bb6, 5%);
+        }
+    }
+
+    &--facebook {
+        background-color: #305c99;
+
+        &:hover {
+            background-color: darken(#305c99, 5%);
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{% set fix_cache = content|render %}
+{% set template = content.field_block_template|field_raw('value') %}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% block content %}
+    <div class="slider">
+      <div class="slider__slider js-header-slider">
+        {% for item in content.field_ref_slides|field_value %}
+          {{ item }}
+        {% endfor %}
+      </div>
+    </div>
+  {% endblock %}
+</div>

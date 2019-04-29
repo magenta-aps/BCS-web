@@ -1,0 +1,22 @@
+section.block.chat-block.is-collapsed
+    .block__wrapper
+        h3.block__title.block__title--expandable.js-expand-block
+            span.block__title-image-container.block__title-image-container--icon
+                img.h-round(src=pathImg + "icon-call-center.svg")
+            span Have questions?
+        .block__content
+            .chat-block__content
+                .chat-block__person-data
+                    .chat-block__avatar
+                        img.h-round(src=pathImg + "call-center.png")
+                    .chat-block__info
+                        .chat-block__name Tim Johnson
+                .chat-block__chat-buttons
+                    a.brand.brand--inline.brand--skype(href="#")
+                        +logo-skype
+                        span.brand__text Call
+                    a.brand.brand--inline.brand--messenger(href="#")
+                        +logo-messenger
+                        span.brand__text Message Us
+    button.block__expand-button.js-expand-block(type="button")
+        +icon-arrow-down

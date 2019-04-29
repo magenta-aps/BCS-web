@@ -1,0 +1,13 @@
+global-styling:
+  css:
+    base:
+      css/style.css: {}
+      css/custom.css: {}
+global-scripts:
+  js:
+    js/app_withoutjquery.js: {}
+    js/custom.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

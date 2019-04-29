@@ -1,0 +1,9 @@
+services:
+  custom_event_subscriber:
+    class: Drupal\custom\EventSubscriber\CustomRedirectSubscriber
+    tags:
+      - {name: event_subscriber}
+  custom_exception404_subscriber:
+    class: Drupal\custom\EventSubscriber\RedirectOn404Subscriber
+    tags:
+      - { name: event_subscriber }

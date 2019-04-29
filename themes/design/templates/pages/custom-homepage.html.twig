@@ -1,0 +1,17 @@
+{% if data.tabs %}
+  <div class="tab-content">
+    {% for tab in data.tabs %}
+      {% if tab.tab_enabled %}
+        <div class="tab-pane fade{{ tab.tab_class }}" id="{{ tab.tab_id }}" role="tabpanel">
+          {{ tab.tab_edit|raw }}
+          {{ tab.tab_content }}
+          {% for block in tab.tab_blocks %}
+            <div class="layout__block{{ block.classes }}">
+              {{ block.content|raw }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

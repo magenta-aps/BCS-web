@@ -1,0 +1,60 @@
+.logo {
+    display: block;
+    float: left;
+
+    &__image {
+        height: 28px;
+        border: 0;
+
+        @media (min-width: $tablet-min) {
+            height: 46px;
+        }
+    }
+
+    .header & {
+        @media (max-width: $phablet-max) {
+            @include margin(9px null null 5px);
+        }
+
+        @media (min-width: $tablet-min) {
+            @include position(absolute, 30px null null 40px);
+            z-index: 1;
+        }
+    }
+
+    .header--empty & {
+        .logo__image {
+            @media (min-width: $tablet-min) {
+                height: 90px;
+            }
+        }
+    }
+
+    .layout__menu & {
+        @include position(absolute, 10px null null 30px);
+
+        @media (min-width: $desktop-min) {
+            top: 17px;
+        }
+
+        .logo__image {
+            height: 36px;
+            display: block;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            @include margin(3px null null null);
+
+            @media (min-width: $desktop-min) {
+                height: 36px;
+            }
+        }
+    }
+}
+
+.is-content-sticky {
+    .layout__menu {
+        .logo__image--small {
+            opacity: 1;
+        }
+    }
+}

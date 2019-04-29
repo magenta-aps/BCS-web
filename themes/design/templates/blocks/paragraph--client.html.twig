@@ -1,0 +1,11 @@
+{% set fix_cache = content|render %}
+{% block paragraph %}
+  {% block content %}
+    <li class="logo-list__item">
+      <div class="logo-list__name-block"><img class="logo-list__logo" src="{{ content.field_logo|field_value }}" alt="{{ content.field_logo|field_raw('alt') }}"></div>
+      <div class="logo-list__description">
+        <h3>{{ content.field_title|field_value }}</h3><a class="link" href="{{ content.field_website|field_raw('uri') }}" target="_blank">{{ content.field_website|field_raw('title') }}</a>
+      </div>
+    </li>
+  {% endblock %}
+{% endblock paragraph %}

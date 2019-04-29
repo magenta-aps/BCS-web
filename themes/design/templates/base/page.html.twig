@@ -1,0 +1,38 @@
+<header class="header">
+  {% if page.header_background %}
+    <div class="header__bg">
+      {{ page.header_background }}
+    </div>
+  {% endif %}
+  <div class="header__wrapper">
+    <div class="layout__wrapper"><a class="logo js-logo" href="{{ base_path }}"><img class="logo__image" src="{{ theme_path }}images/logo-white-red.png" alt="Logo"></a>
+      {% if page.header_top %}
+        <div class="action-button-group">
+          {{ page.header_top }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</header>
+<main class="layout__wrapper">
+  <div class="layout__menu"><a class="logo" href="{{ base_path }}"><img class="logo__image logo__image--small" src="{{ theme_path }}images/logo-small.png" alt="Logo"></a>
+    <div class="layout__menu-container">
+      {% if page.menu %}
+        {{ page.menu }}
+      {% endif %}
+      {% if page.header_top %}
+        <div class="action-button-group">
+          {{ page.header_top }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="layout__aside">
+    {% if page.sidebar_first %}
+      {{ page.sidebar_first }}
+    {% endif %}
+  </div>
+  <div class="layout__content">
+    {{ page.content }}
+  </div>
+</main>

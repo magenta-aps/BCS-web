@@ -1,0 +1,118 @@
+.block {
+    position: relative;
+    overflow: hidden;
+
+    &__wrapper {
+        @include padding(null 20px);
+
+        @media (min-width: $tablet-min) {
+            @include padding(null 30px);
+        }
+    }
+
+    &__content {
+        @media (max-width: $phablet-max) {
+            @include padding(null 20px null null);
+        }
+    }
+
+    &__title {
+        @include margin(0 null);
+        @include padding(12px null);
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 700;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        user-select: none;
+
+        @media (max-width: $phablet-max) {
+            cursor: pointer;
+        }
+
+        @media (min-width: $tablet-min) {
+            @include padding(24px null null null);
+        }
+    }
+
+    &__text {
+        @include margin(15px null 0);
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    &__button {
+        @include padding(13px 35px 13px 17px);
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: $c-white;
+        text-decoration: none;
+        display: flex;
+        flex-flow: row;
+        position: relative;
+
+        svg {
+            @include position(absolute, 50% 20px null null);
+            @include size(12px auto);
+            transform: translateY(-50%) rotate(-90deg);
+            fill: $c-white;
+        }
+    }
+
+    &__expand-button {
+        @include padding(0);
+        @include position(absolute, 12px 6px null null);
+        @include size(40px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        outline: none;
+
+        @media (min-width: $tablet-min) {
+            display: none;
+        }
+
+        svg {
+            width: 12px;
+            fill: #595959;
+            transform: rotate(180deg);
+            transition: width 0.1s ease-in-out, transform 0.1s ease-in-out;
+        }
+    }
+
+    &__title-image-container {
+        @include size(35px);
+        @include margin(null 12px null null);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            @include size(100% auto);
+        }
+
+        &--icon {
+            @include padding(null 6px);
+            border: 1px solid #ced6dd;
+        }
+    }
+
+    &.is-collapsed {
+        @media (max-width: $phablet-max) {
+            .block__content {
+                display: none;
+            }
+
+            .block__expand-button {
+                svg {
+                    transform: rotate(0);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{% set fix_cache = content|render %}
+{% block paragraph %}
+  {% block content %}
+    <div class="slider__item">
+      <div class="slider__media"><img src="{{ content.field_image|field_value }}" alt="{{ content.field_image|field_raw('alt') }}"></div>
+      <div class="slider__content">
+        <div class="layout__wrapper">
+          {{ content.field_body|field_value }}
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+{% endblock paragraph %}

@@ -1,0 +1,12 @@
+<?php
+
+function custom_theme($existing, $type, $theme, $path) {
+  return [
+    'custom_homepage' => [
+      'variables' => ['data' => NULL],
+    ],
+    'custom_login_link' => [
+      'variables' => ['data' => NULL],
+    ],
+  ];
+}

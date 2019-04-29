@@ -1,0 +1,37 @@
+.requisites-list {
+    @include margin(0 null);
+    @include padding(null null null 0);
+    list-style-type: none;
+
+    &__item {
+        font-size: 14px;
+
+        &:not(:first-child) {
+            @include margin(12px null null null);
+        }
+
+        @media (min-width: $phablet-min) and (max-width: $phablet-max) {
+            @include clearfix;
+        }
+    }
+
+    &__name {
+        text-transform: uppercase;
+        font-weight: 700;
+
+        @media (min-width: $phablet-min) and (max-width: $phablet-max) {
+            width: 200px;
+            float: left;
+        }
+
+        &:after {
+            content: ':';
+        }
+    }
+
+    &__value {
+        @media (min-width: $phablet-min) and (max-width: $phablet-max) {
+            @include margin(null null null 200px);
+        }
+    }
+}

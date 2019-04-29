@@ -1,0 +1,7 @@
+<ul class="menu" role="tablist">
+  {% if items %}
+    {% for item in items %}
+      <li class="menu__item {{ item.active_class }}" role="presentation"><a{{ item.attributes }}><span>{{ item.title }}</span></a></li>
+    {% endfor %}
+  {% endif %}
+</ul>

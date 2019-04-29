@@ -1,0 +1,87 @@
+.chat-block {
+    background-color: #efefef;
+
+    &:before {
+        @media (min-width: $tablet-min) {
+            content: '';
+            display: block;
+            padding-bottom: 100%;
+        }
+    }
+
+    &__content {
+        @include padding(20px null);
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__person-data {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__avatar {
+        @include margin(null 30px null 10px);
+        order: 1;
+
+        &,
+        img {
+            @include size(80px);
+        }
+
+        img {
+            display: block;
+        }
+    }
+
+    &__info {
+        flex: 1;
+        order: 2;
+    }
+
+    &__name {
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__position {
+        @include margin(10px null null null);
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    &__chat-buttons {
+        @include margin(30px -7.5px null);
+        display: flex;
+        flex-direction: row;
+
+        @media (min-width: $tablet-min) {
+            @include margin(null 0);
+            flex-direction: column;
+        }
+
+        .brand {
+            @include margin(null 7.5px);
+            flex: 1;
+            border-radius: 4px;
+            border: 1px solid #c3cee1;
+
+            @media (min-width: $tablet-min) {
+                @include margin(null 0);
+                border-color: $c-white;
+
+                &:not(:first-child) {
+                    @include margin(5px null null null);
+                }
+            }
+        }
+    }
+
+    .block__wrapper {
+        @media (min-width: $tablet-min) {
+            @include position(absolute, 0 null null 0);
+            @include size(100%);
+        }
+    }
+}

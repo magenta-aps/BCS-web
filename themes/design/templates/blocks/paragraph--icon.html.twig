@@ -1,0 +1,12 @@
+{% set fix_cache = content|render %}
+{% block paragraph %}
+  {% block content %}
+    <div class="layout__sub-block">
+      <div class="layout__heading">
+        <div class="icon-block"><i class="fa fa-{{ content.field_icon|field_value }}" aria-hidden="true"></i><span class="icon-block__border"></span></div>
+        <h3>{{ content.field_title|field_value }}</h3>
+      </div>
+      {{ content.field_body|field_value }}
+    </div>
+  {% endblock %}
+{% endblock paragraph %}

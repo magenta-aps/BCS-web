@@ -1,0 +1,134 @@
+<?php
+
+use Drupal\block\Entity\Block;
+use Drupal\Core\Url;
+use \Drupal\block_content\BlockContentInterface;
+
+
+function design_preprocess(&$variables, $hook) {
+  $variables['base_path'] = base_path();
+  $variables['theme_path'] = base_path().$variables['directory'].'/';
+}
+
+
+function design_page_attachments_alter(array &$attachments) {
+  $metatag = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1, maximum-scale=1',
+    ),
+  );
+  $attachments['#attached']['html_head'][] = [$metatag, 'viewport'];
+
+  $metatag = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'http-equiv' => 'X-UA-Compatible',
+      'content' => 'IE=edge',
+    ),
+  );
+  $attachments['#attached']['html_head'][] = [$metatag, 'X-UA-Compatible'];
+
+  $metatag = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'name' => 'format-detection',
+      'content' => 'telephone=no',
+    ),
+  );
+  $attachments['#attached']['html_head'][] = [$metatag, 'format-detection'];
+}
+
+
+function design_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if ($variables['elements']['#base_plugin_id'] == 'menu_block') {
+    $block_id = $variables['elements']['#id'];
+    $block = Block::load($block_id);
+
+    $region = $block->getRegion();
+
+    $suggestions[] = $variables['theme_hook_original'] . '__menu__region_' . $region;
+  }
+
+  // block type templates
+  if (isset($variables['elements']['content']['#block_content'])
+      and $variables['elements']['content']['#block_content'] instanceof BlockContentInterface) {
+      $suggestions[] = 'block__type__' . $variables['elements']['content']['#block_content']->bundle();
+  }
+}
+
+
+function design_preprocess_menu__main(array &$variables) {
+  $current_route = \Drupal::routeMatch()->getRouteName();
+  $i = 0;
+
+  foreach ($variables['items'] as $key => $item) {
+    $active = FALSE;
+    $type = 'normal';
+    $href = $item['url']->toString();
+
+    if ($current_route == 'custom.homepage' && $item['url']->getRouteName() == '<front>') {
+      $i++;
+      if ($i == 1) {
+       $active = TRUE;
+      }
+      $type = 'tab';
+      $href = ltrim($href, '/da');
+      $href = ltrim($href, '/en');
+      $href = ltrim($href, '/nb');
+      $href = ltrim($href, '/');
+      $control = ltrim($href, '#');
+    }
+    elseif ($item['in_active_trail']) {
+      $active = TRUE; 
+    }
+
+    $variables['items'][$key]['attributes']->addClass('menu__link');
+    $variables['items'][$key]['attributes']->setAttribute('href', $href);
+
+    if ($type == 'tab') {
+      $variables['items'][$key]['attributes']->setAttribute('role', 'tab');
+      $variables['items'][$key]['attributes']->setAttribute('data-toggle', 'tab');
+      $variables['items'][$key]['attributes']->setAttribute('aria-controls', $control);
+    }
+
+    $variables['items'][$key]['active_class'] = $active ? 'active' : '';
+  }
+  $variables['#cache']['max-age'] = 0;
+}
+
+
+function design_preprocess_links__language_block(array &$variables) {
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  if (!empty($variables['links'])) {
+    foreach ($variables['links'] as $key => $val) {
+
+      $li_classes = ["languages__item"];
+      if ($language == $key) {
+        $li_classes[] = 'is-selected';
+      }
+      $variables['links'][$key]['attributes']['class'] = $li_classes;
+
+      $text = strtoupper( design_change_lang_code($key) );
+
+      $variables['links'][$key]['text'] = $text;
+      $variables['links'][$key]['link']['#title'] = $text;
+      $variables['links'][$key]['link']['#options']['attributes']['class'] = ["languages__link"];
+    }
+  }
+  $variables['active_language'] = strtoupper( design_change_lang_code($language) );
+}
+
+
+function design_change_lang_code($code) {
+  switch ($code) {
+    case 'nb': $code = 'no'; break;
+    case 'da': $code = 'dk';
+  }
+  return $code;
+}

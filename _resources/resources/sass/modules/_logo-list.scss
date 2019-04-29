@@ -1,0 +1,39 @@
+.logo-list {
+    @include padding(null null null 0);
+    @include margin(25px null);
+    list-style-type: none;
+
+    &__item {
+        & + & {
+            @include margin(35px null null null);
+        }
+    }
+
+    &__name-block {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__logo {
+        @include size(auto 40px);
+
+        & + .logo-list__title {
+            @include margin(null null null 10px);
+        }
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &__description {
+        @extend .h-no-margin-inside;
+        @include margin(10px null null null);
+
+        h3 {
+            @include margin(0 null 5px);
+        }
+    }
+}

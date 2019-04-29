@@ -1,0 +1,60 @@
+.number-list {
+    &__content {
+        @include margin(-30px -20px null);
+        display: flex;
+        flex-flow: row wrap;
+
+        @include tablet-min {
+            @include margin(null 0);
+        }
+    }
+
+    &__item {
+        @include margin(30px null null null);
+        @include padding(null 15px);
+        width: 50%;
+
+        @include desktop-min {
+            @include padding(null 20px);
+            width: 25%;
+        }
+    }
+
+    &__title {
+        @include margin(15px null null null);
+        text-transform: uppercase;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    &__number-block,
+    &__canvas,
+    &__number {
+        @include size(130px);
+        @include padding(0);
+        display: block;
+    }
+
+    &__number-block {
+        @include margin(null auto);
+        position: relative;
+    }
+
+    &__canvas {
+        transform: rotate(180deg);
+        display: block;
+    }
+
+    &__number {
+        @include position(absolute, 0 null null 0);
+        @include size(100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 1;
+        font-size: 22px;
+        color: $c-red-2;
+    }
+}

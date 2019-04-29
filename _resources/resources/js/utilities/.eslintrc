@@ -1,0 +1,9 @@
+{
+  "globals": {
+    "particlesJS": true
+  },
+  "env": {
+    "browser": true,
+    "jquery": true
+  }
+}

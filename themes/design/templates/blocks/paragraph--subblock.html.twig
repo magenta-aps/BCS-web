@@ -1,0 +1,8 @@
+{% set fix_cache = content|render %}
+{% block paragraph %}
+  {% block content %}
+    <div class="layout__sub-block">
+      {{ content.field_body|field_value }}
+    </div>
+  {% endblock %}
+{% endblock paragraph %}

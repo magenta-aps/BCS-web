@@ -1,0 +1,59 @@
+.slider {
+    &,
+    .slick-list,
+    .slick-track,
+    .slick-slide,
+    .slick-slide > div,
+    &__slider,
+    &__item,
+    &__media {
+        @include size(100%);
+    }
+
+    &__slider {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
+
+        &:not(.slick-initialized) {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    &__item {
+        position: relative;
+    }
+
+    &__media {
+        &:before {
+            @include position(absolute, 0 null null 0);
+            @include size(100%);
+            background-color: rgba(0, 0, 0, 0.25);
+            content: '';
+        }
+
+        img {
+            @include size(100% auto);
+        }
+    }
+
+    &__content {
+        @include padding(null 150px);
+        @include position(absolute, 145px null null 0);
+        @include size(100% auto);
+        color: #fff;
+        line-height: 1.3;
+        text-align: center;
+
+        h3 {
+            @include margin(0 null);
+            font-size: 32px;
+        }
+
+        p {
+            @include margin(20px null 0);
+            font-size: 14px;
+        }
+    }
+}

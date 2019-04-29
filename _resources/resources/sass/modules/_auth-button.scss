@@ -1,0 +1,35 @@
+.auth-button {
+    @include size(40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: $tablet-min) {
+        @include size(34px);
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.75);
+    }
+
+    svg {
+        @include size(16px);
+        display: block;
+        fill: $c-white;
+        opacity: 0.75;
+        transition: opacity 0.1s ease-in-out;
+    }
+
+    &:hover {
+        svg {
+            opacity: 1;
+        }
+    }
+
+    .layout__menu-container & {
+        border: 2px solid #dbd9db;
+
+        svg {
+            opacity: 0.7;
+            fill: #5c5c5c;
+        }
+    }
+}

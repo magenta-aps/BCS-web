@@ -1,0 +1,13 @@
+section.block.requisites-block.is-collapsed
+    .block__wrapper
+        h3.block__title.js-expand-block
+            span.block__title-image-container.block__title-image-container--icon
+                img(src=pathImg + "icon-briefcase.png", alt="Briefcase")
+            span Contacts
+        .block__content
+            ul.requisites-list
+                +requisite-item('Address', 'Studiestræde 14,<br />1455 København K, Denmark')
+                +requisite-item('E-mail', '<a href="mailto:info@bcomesafe.com" class="link">info@bcomesafe.com</a>')
+                +requisite-item('Phone', '<a href="tel:+4526833471" class="link">+45 26 83 34 71</a>,<br /><a href="tel:+4551510676" class="link">+45 51 51 06 76</a>')
+    button.block__expand-button.js-expand-block(type="button")
+        +icon-arrow-down

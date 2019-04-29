@@ -1,0 +1,9 @@
+.link {
+    border: 1px dotted transparent;
+    white-space: nowrap;
+
+    &:focus {
+        border-color: $c-red;
+        text-decoration: none;
+    }
+}

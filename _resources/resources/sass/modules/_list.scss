@@ -1,0 +1,15 @@
+.list {
+    list-style-type: none;
+
+    li {
+        position: relative;
+
+        &:before {
+            @include position(absolute, 4px null null -25px);
+            @include size(16px);
+            background: url('#{$images}icon-tick.svg') 0 0 no-repeat;
+            display: block;
+            content: '';
+        }
+    }
+}

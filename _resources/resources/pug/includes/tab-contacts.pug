@@ -1,0 +1,35 @@
+.layout__block.layout__block--map
+
+        iframe(
+            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37044.98036510054!2d12.51075526166667!3d55.68205278150287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4652530e2ee8af9b%3A0xe60e0b21ab648c29!2sStudiestr%C3%A6de+14%2C+1455+K%C3%B8benhavn+K%2C+Denmark!5e0!3m2!1sen!2slt!4v1515937918805',
+            frameborder='0',
+            style='border:0',
+            allowfullscreen=''
+        )
+
+
+.layout__block
+    .layout__sub-block
+        h2 Contact information
+        p BComeSafe ApS #[br] Studiestræde 14 #[br] 1455 København K #[br] Denmark
+        p CVR 37 13 07 37
+        p For questions, please call us on #[a.link(href="tel:+4526833471") +45 26 83 34 71] (Morten) or #[a.link(href="tel:+4551510676") +45 51 51 06 76] (Steffen).
+        p You can also send a mail on #[a.link(href="mailto:info@bcomesafe.com") info@bcomesafe.com]. Finally, you are welcome to fill in the contact form below.
+
+.layout__block
+    h2 Write to us
+    form.form-block
+        .form-block__group
+            label.form-block__label(for="elementFullName") Your name
+            input.form-block__element.form-block__element--medium(placeholder="Enter your name", type="text", name="fullName", id="elementFullName")
+        .form-block__group
+            label.form-block__label(for="elementEmail") E-mail
+            input.form-block__element.form-block__element--medium(placeholder="Enter your email", type="email", name="email", id="elementEmail")
+        .form-block__group
+            label.form-block__label(for="elementSubject") Subject
+            input.form-block__element.form-block__element--medium(placeholder="Enter subject", type="text", name="subject", id="elementSubject")
+        .form-block__group
+            label.form-block__label(for="elementMessage") Your message
+            textarea.form-block__element(placeholder="Enter your message", rows="5", name="message", id="elementMessage")
+        .form-block__group
+            input.button.button--primary(type="submit", name="submit", value="Submit")

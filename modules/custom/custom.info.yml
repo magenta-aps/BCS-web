@@ -1,0 +1,5 @@
+name: Custom
+description: BComeSafe Site
+package: Custom
+type: module
+core: 8.x

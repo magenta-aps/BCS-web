@@ -1,0 +1,82 @@
+$images: '../images/';
+$fonts: '../fonts/';
+
+
+// --------------------------------------------------
+// Colors
+// --------------------------------------------------
+$c-light-grey: #e8e8e8;
+$c-dark-grey: #222;
+$c-dark-gray-2: #333;
+$c-red: #de2027;
+$c-red-2: #dd252b;
+$c-white: #fff;
+$c-black: #000;
+
+// --------------------------------------------------
+// Base
+// --------------------------------------------------
+
+$base-font-family: Roboto, Arial, sans-serif;
+$base-font-size: 16px;
+$base-line-height: 1.5;
+$base-color: $c-dark-grey;
+$base-link-color: $c-red;
+$base-link-color-hover: darken($c-red, 5%);
+
+// --------------------------------------------------
+// Layout
+// --------------------------------------------------
+$layout-max-width: 1200px;
+$layout-min-width: 320px;
+$layout-gutter: 30px;
+$layout-gutter-half: $layout-gutter / 2;
+
+$desktop-width: 1200px;
+$tablet-width: 900px;
+$phablet-width: 600px;
+
+// --------------------------------------------------
+// Item
+// --------------------------------------------------
+$item-width: 300px;
+
+// --------------------------------------------------
+// Bootstrap var rewrite
+// --------------------------------------------------
+
+//== Media queries breakpoints
+$screen-xs:                  480px !default;
+$screen-xs-min:              $screen-xs !default;
+$screen-phone:               $screen-xs-min !default;
+
+$screen-sm:                  600px !default;
+$screen-sm-min:              $screen-sm !default;
+$screen-tablet:              $screen-sm-min !default;
+
+$screen-md:                  900px !default;
+$screen-md-min:              $screen-md !default;
+$screen-desktop:             $screen-md-min !default;
+
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+$screen-lg-desktop:          $screen-lg-min !default;
+
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
+
+//== Modals
+
+$modal-inner-padding: 0 !default;
+$modal-title-padding: 0 !default;
+$modal-content-border-color: rgba(0, 0, 0, 0) !default;
+$modal-content-fallback-border-color: transparent !default;
+$modal-backdrop-opacity: .6 !default;
+$modal-header-border-color: transparent !default;
+$modal-footer-border-color: transparent !default;
+
+$modal-lg: 900px !default;
+$modal-md: 600px !default;
+$modal-sm: 300px !default;

@@ -1,0 +1,79 @@
+{% set fix_cache = content|render %}
+{% set template = content.field_block_template|field_raw('value') %}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'block-type-content',
+    'block-type-content-' ~ template|clean_class
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if content.field_block_title|field_value %}
+     <h2>{{ content.field_block_title|field_value }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% block content %}
+
+    {% if template == 'text' %}
+
+      {{ content.body|field_value }}
+      {{ content.field_ref_webform }}
+
+    {% elseif template == 'persons' %}
+
+      {{ content.body|field_value }}
+      {% for item in content.field_ref_persons|field_value %}
+        {{ item }}
+      {% endfor %}
+
+    {% elseif template == 'icons' %}
+
+      {% for item in content.field_ref_icons|field_value %}
+        {{ item }}
+      {% endfor %}
+
+    {% elseif template == 'partners' %}
+
+      <ul class="logo-list">
+        {% for item in content.field_ref_partners|field_value %}
+          {{ item }}
+        {% endfor %}
+      </ul>
+
+    {% elseif template == 'percents' %}
+
+      <div class="number-list">
+        <div class="number-list__content">
+          {% for item in content.field_ref_percents|field_value %}
+            {{ item }}
+          {% endfor %}
+        </div>
+      </div>
+
+    {% elseif template == 'subblocks' %}
+
+      {{ content.body|field_value }}
+      {% for item in content.field_ref_subblocks|field_value %}
+        {{ item }}
+      {% endfor %}
+
+    {% elseif template == 'clients' %}
+
+      <ul class="logo-list">
+        {% for item in content.field_ref_clients|field_value %}
+          {{ item }}
+        {% endfor %}
+      </ul>
+
+    {% else %}
+
+      {{ content }}
+
+    {% endif %}
+
+  {% endblock %}
+</div>

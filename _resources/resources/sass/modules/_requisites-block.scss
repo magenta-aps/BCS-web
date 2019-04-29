@@ -1,0 +1,22 @@
+.requisites-block {
+    background-color: #f9f9f9;
+
+    &:before {
+        @media (min-width: $tablet-min) {
+            content: '';
+            display: block;
+            padding-bottom: 100%;
+        }
+    }
+
+    .block__wrapper {
+        @media (min-width: $tablet-min) {
+            @include position(absolute, 0 null null 0);
+            @include size(100%);
+        }
+    }
+
+    .block__content {
+        @include padding(10px null 20px null);
+    }
+}

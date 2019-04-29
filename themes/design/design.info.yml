@@ -1,0 +1,20 @@
+name: Design
+type: theme
+description: Great theme
+base theme: classy
+libraries:
+  - design/global-styling
+  - design/global-scripts
+core: 8.x
+regions:
+  header_background: Header background
+  header_top: Header top
+  menu: Menu
+  sidebar_first: Sidebar first
+  content: Content
+  content_blocks: Tab content blocks
+  not_used: Not used
+# to make theme identical to original
+stylesheets-remove:
+  - 'core/assets/vendor/normalize-css/normalize.css'
+  - '@classy/css/components/menu.css'

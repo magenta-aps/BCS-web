@@ -1,0 +1,33 @@
+include base/vars
+include base/mixin
+
+block variables
+
+doctype html
+html(lang='en')
+    head
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+        meta(name="format-detection" content="telephone=no")
+        title BComeSafe
+        link(type='text/css', rel='stylesheet', href=pathCss + 'app.min.css?v=' + version)
+    body
+        include includes/header
+        main.layout__wrapper
+            .layout__menu
+                a.logo(href="#")
+                    img.logo__image.logo__image--small(src=pathImg + "logo-small.png", alt="Logo")
+                .layout__menu-container
+                    include includes/menu
+                    .action-button-group
+                        +auth-button
+                        include includes/languages
+            .layout__aside
+                include includes/requisites
+                include includes/chat-with-me
+            .layout__content
+                include includes/tabs
+
+        block content
+        script(type='text/javascript', src=pathJs + 'app.min.js?v=' + version)

@@ -1,0 +1,11 @@
+{% set fix_cache = content|render %}
+{% block paragraph %}
+  {% block content %}
+   <div class="number-list__item">
+      <div class="number-list__number-block">
+        <canvas class="number-list__canvas js-number" width="130px" height="130px" data-number="{{ content.field_percent|field_value }}"></canvas><span class="number-list__number">{{ content.field_percent|field_value }}</span>
+      </div>
+      <div class="number-list__title">{{ content.field_text|field_value }}</div>
+    </div>
+  {% endblock %}
+{% endblock paragraph %}

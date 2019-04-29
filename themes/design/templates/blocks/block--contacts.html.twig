@@ -1,0 +1,50 @@
+{% set fix_cache = content|render %}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <!-- <h2{{ title_attributes }}>{{ label }}</h2> -->
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    <section class="block requisites-block is-collapsed">
+      <div class="block__wrapper">
+        <h3 class="block__title js-expand-block"><span class="block__title-image-container block__title-image-container--icon"><img src="/themes/design/images/icon-briefcase.png" alt="Briefcase"></span><span>{{ content.field_block_title|field_value }}</span></h3>
+        <div class="block__content">
+          <ul class="requisites-list">
+            <li class="requisites-list__item">
+              <div class="requisites-list__name">{{ content.field_address|field_label }}</div>
+              <div class="requisites-list__value">{{ content.field_address|field_value }}</div>
+            </li>
+            <li class="requisites-list__item">
+              <div class="requisites-list__name">{{ content.field_email|field_label }}</div>
+              {% for item in content.field_email|field_value %}
+                <div class="requisites-list__value"><a href="mailto:{{ item }}" class="link">{{ item }}</a></div>
+              {% endfor %}
+            </li>
+            <li class="requisites-list__item">
+              <div class="requisites-list__name">{{ content.field_phone|field_label }}</div>
+              {% set count = content.field_phone|field_value|length %}
+              {% set no = 1 %}
+              {% for item in content.field_phone|field_value %}
+                <div class="requisites-list__value"><a href="tel:{{ item|render|replace({' ': ''}) }}" class="link">{{ item }}</a>{% if count > no %},{% endif %}
+                {% set no = no + 1 %}
+              {% endfor %}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button class="block__expand-button js-expand-block" type="button">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewbox="0 0 16 16">
+          <path d="M1.233 6.15l5.694 5.951c0.027 0.029 0.055 0.055 0.084 0.082 0.259 0.235 0.605 0.379 0.984 0.379 0.42 0 0.799-0.177 1.066-0.46l5.708-5.971c0.273-0.291 0.441-0.683 0.441-1.115s-0.168-0.824-0.442-1.116c-0.266-0.284-0.645-0.462-1.065-0.462s-0.799 0.178-1.065 0.462l-4.642 4.849-4.628-4.834c-0.026-0.029-0.054-0.055-0.083-0.082-0.259-0.235-0.605-0.379-0.984-0.379-0.42 0-0.799 0.177-1.066 0.46-0.275 0.289-0.443 0.679-0.443 1.109 0 0.002 0 0.004 0 0.007v0.002c0 0.002 0 0.004 0 0.007 0 0.431 0.168 0.822 0.443 1.111z"></path>
+        </svg>
+      </button>
+    </section>
+  {% endblock %}
+</div>
